@@ -7,6 +7,7 @@ import imaplib
 import json
 from pathlib import Path
 import re
+import sys
 from datetime import datetime, timedelta
 
 
@@ -159,6 +160,9 @@ def parse_iso_date(value):
 
 
 def main():
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--start", default="2026-07-10")
     parser.add_argument("--end", default=None, help="exclusive end date, YYYY-MM-DD")
