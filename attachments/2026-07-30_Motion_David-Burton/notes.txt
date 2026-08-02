@@ -1,0 +1,25 @@
+Attachments saved from read-only IMAP fetch.
+
+06_Motion_Logo_NEW_100x12_5258cfde-0b2d-43b7-af8f-13662c8d11d4.png appears to be an inline email signature/logo image.
+
+07_Brush needed.pdf is the product drawing used for quotation.
+
+PDF drawing details:
+- Description: Brush, 60", 0.04 NYLON
+- Part No: 5-050895
+- Brush face width: 54.00
+- Hub-to-hub OD max / overall hub-to-hub length: 56.00
+- Outside diameter: ø10.00
+- Inner/core diameter callout: ø1.94
+- Default tolerances unless otherwise specified:
+  - Fraction: ±0.06
+  - 0.X: ±0.1
+  - 0.0X: ±0.03
+  - 0.00X: ±0.01
+  - 0°: ±1°
+  - 0.X°: ±0.5°
+- Notes: shear and brake dimensions are O.D.; break all sharp edges and remove burrs.
+- Drawing source shown on PDF: CP Manufacturing Inc., 1300 Wilson Avenue, National City, CA 91950, USA
+- Original drawing date/revision: 12/11/2006, Rev 1
+
+Customer asks whether BrushCustom can quote an equivalent brush.

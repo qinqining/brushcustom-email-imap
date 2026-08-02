@@ -1,0 +1,5 @@
+Mailbox: INBOX
+Fetch window: 2026-07-31 to 2026-08-03 exclusive
+IMAP id in fetched JSON: 17
+Subject: Brushcustom RFQ - NEU-PMC Pte Ltd - panel brushes
+Read-only policy: selected readonly and fetched with BODY.PEEK[].

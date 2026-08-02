@@ -1,6 +1,6 @@
 # brushcustom 邮件询盘项目 checkpoint
 
-更新日期：2026-07-28
+更新日期：2026-08-02
 
 ## 项目目的
 
@@ -41,6 +41,7 @@ D:\brushcustom-email-imap\run_fetch_readonly.ps1
 D:\brushcustom-email-imap\search_mail_readonly.py
 D:\brushcustom-email-imap\save_mail_attachments_readonly.py
 D:\brushcustom-email-imap\organize_historical_attachments.py
+D:\brushcustom-email-imap\render_pdf_regions.py
 D:\brushcustom-email-imap\add_attachment_columns_20260724.mjs
 D:\brushcustom-email-imap\checkpoint.md
 ```
@@ -99,6 +100,69 @@ M 原始图片URL
 - Excel 的 `原始图片URL` 列只填写网站表单上传图片的原始 URL；普通邮件附件没有原始 URL 时留空。
 - 每个附件文件夹可包含 `inquiry_email.txt`、`matched_mailbox.txt`、`original_urls.txt`、`notes.txt` 等辅助记录。
 
+## PDF 图纸局部放大脚本
+
+2026-08-02 已新增本地脚本：
+
+```text
+D:\brushcustom-email-imap\render_pdf_regions.py
+```
+
+用途：
+
+- 当询盘 PDF 图纸字体太小、右下角标题栏/材料/Part No./Rev/公差读不清时，先用该脚本在本机把 PDF 渲染成高清 PNG。
+- 脚本默认生成整页图和多个放大区域，方便读取图纸信息后再写入 Excel。
+- 全流程本地执行，不上传客户图纸；外部 PDF/OCR 插件只在本地放大仍看不清、且用户同意时再考虑。
+
+默认输出位置：
+
+```text
+客户附件目录\pdf_regions\PDF文件名\
+```
+
+默认生成文件：
+
+```text
+page_001_full_page.png
+page_001_title_block_zoom.png
+page_001_notes_zoom.png
+page_001_main_dimensions_zoom.png
+page_001_section_views_zoom.png
+page_001_right_detail_zoom.png
+manifest.json
+README.txt
+```
+
+常用命令：
+
+```powershell
+cd /d D:\brushcustom-email-imap
+$Python="C:\Users\HP\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
+& $Python .\render_pdf_regions.py --pdf "D:\brushcustom-email-imap\attachments\客户文件夹\图纸.pdf" --dpi 350 --scale 3
+```
+
+也可以直接处理某个客户附件目录下所有顶层 PDF：
+
+```powershell
+& $Python .\render_pdf_regions.py --customer-dir "D:\brushcustom-email-imap\attachments\客户文件夹" --dpi 350 --scale 3
+```
+
+可单独只生成某些区域，例如只看右下角标题栏：
+
+```powershell
+& $Python .\render_pdf_regions.py --pdf "D:\brushcustom-email-imap\attachments\客户文件夹\图纸.pdf" --regions title_block_zoom
+```
+
+默认区域说明：
+
+- `title_block_zoom`：右下角标题栏、材料、Part No.、DWG No.、Rev、公差、单位、数量。
+- `notes_zoom`：左下角 notes / drawing notes。
+- `main_dimensions_zoom`：上方主视图和主要尺寸。
+- `section_views_zoom`：中下方剖面、侧视、底视等尺寸区域。
+- `right_detail_zoom`：右侧剖面或立体示意区域。
+
+如果某张图纸版式不同，可新建一个 JSON 文件传给 `--regions-json`，用 0-1 归一化坐标自定义裁剪框；坐标顺序为 `[left, top, right, bottom]`。
+
 ## 询盘筛选和录入规则
 
 录入：
@@ -125,7 +189,7 @@ M 原始图片URL
 
 ## 当前进度
 
-主表当前有 16 条询盘/线索数据行。
+主表当前有 18 条询盘/线索数据行。
 
 当前主表已含：
 
@@ -145,6 +209,8 @@ M 原始图片URL
 14. American Flexible Products
 15. Nautica Technologies AG 正式产品规格补充
 16. Rhino Roofing Products Ltd.
+17. Motion
+18. NEU-PMC Pte Ltd
 
 2026-07-24 已完成历史附件重新整理：
 
@@ -168,6 +234,8 @@ D:\brushcustom-email-imap\attachments\2026-07-17_AssetCool_Jasper-Poppele
 D:\brushcustom-email-imap\attachments\2026-07-20_Nichiha_Jim-Farina
 D:\brushcustom-email-imap\attachments\2026-07-23_American-Flexible_Zory
 D:\brushcustom-email-imap\attachments\2026-07-27_Rhino-Roofing-Products_Wasantha
+D:\brushcustom-email-imap\attachments\2026-07-30_Motion_David-Burton
+D:\brushcustom-email-imap\attachments\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow
 ```
 
 特别说明：
@@ -177,6 +245,87 @@ D:\brushcustom-email-imap\attachments\2026-07-27_Rhino-Roofing-Products_Wasantha
 - American Flexible Products 原始图片 URL：`https://brushcustom.com/wp-content/uploads/elementor/forms/6a6215f58e30f.jpg`
 - Specialist Metallic Coatings、Volkswagen、Carsoe、Nautica 两条记录当前没有发现需要保存的附件或原始图片 URL。
 - Rhino Roofing Products 的 `image002.jpg` 是邮件签名/logo，不是产品图纸；已保存但报价仍需客户提供技术图纸或由我方根据规格出图。
+- Motion 的 `06_Motion_Logo...png` 是邮件签名/logo；`07_Brush needed.pdf` 是产品图纸，已渲染预览到 `D:\brushcustom-email-imap\work\motion_brush_needed_page-1.png`。
+- NEU-PMC 的 `BRUSH ASSEMBLY.PDF.pdf` 是产品图纸，已保存并渲染整页预览到附件目录。
+
+2026-08-02 新增 NEU-PMC 询盘整理：
+
+- 邮件日期：2026-08-01 17:24:38 +0800。
+- 发件来源：网站 RFQ 表单 `sales@brushcustom.com`，Reply-To 为 `cherieyeow@neucorporation.com`。
+- 联系人：Cherie Yeow。
+- 公司：NEU-PMC Pte Ltd。
+- 产品：Panel brush / BRUSH ASSEMBLY。
+- 应用：半导体工厂设备 / ESD 环境，客户说明该面板刷将安装在其机器上。
+- 数量：评估 4 pcs；批准后每月至少 20 pcs。
+- 材料要求：PVC 底座；白色 ESD 刷丝；单根刷丝直径 0.07 mm。
+- 附件图纸：`BRUSH ASSEMBLY.PDF.pdf`。
+- 图纸信息：Title `BRUSH ASSEMBLY`；Part No./DWG No. `N037-260608-A01`；Rev `A0`；单位 `MM`；QTY `01 SET`；Material `TBA`。
+- 主要尺寸：主体约 `168 x 42 x 30 mm`；刷区/内框约 `148 x 22 mm`；Section B-B 显示底座/本体 `15 mm`、可见刷毛高度 `15 mm`、总高 `30 mm`、底部唇边 `2 mm`；横截面宽 `42 mm`。
+- 孔位/特征：`72x ø1 THRU`、`6x ø5 THRU`、`72x ø5` 深/压装刷孔、`4x R1.5`，具体孔位按图纸。
+- 图纸备注：ALL EDGES CHAMFER `(0.10 [0.004])` UNLESS OTHERWISE SPECIFIED。
+- 一般公差：毫米 `X ±0.5`、`X.X ±0.1`、`X.XX ±0.05`、`X.XXX ±0.020`；英寸 `.X ±.02`、`.XX ±.004`、`.XXX ±.002`、`.XXXX ±.0008`；角度 `X° ±1°`、`X.X° ±30'`；粗糙度 `Ra 0.8 µm`。
+- 公司公开信息：新加坡注册公司，UEN `200907809Z`，2009 年成立；官网和营收暂写 `待确认`。
+- 已保存附件目录：`D:\brushcustom-email-imap\attachments\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow`。
+- 已用 `render_pdf_regions.py` 试跑 PDF 局部放大，输出目录：`D:\brushcustom-email-imap\attachments\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\pdf_regions\BRUSH_ASSEMBLY.PDF`。
+- NEU-PMC 已正式写入主表第 19 行。
+- 本次写表脚本：`D:\brushcustom-email-imap\append_neu_pmc_inquiry_20260801.mjs`。
+- 本次写表备份：
+
+```text
+D:\brushcustom-email-imap\work\brushcustom询盘记录_backup_before_neu_pmc_20260801_20260802015551.xlsx
+```
+
+- 主表校验结果：
+
+```text
+officecli validate: Validation passed: no errors found.
+officecli view issues: Found 0 issue(s).
+```
+
+- 预览图：
+
+```text
+D:\brushcustom-email-imap\work\preview_after_neu_pmc_20260801.png
+```
+
+2026-07-31 新增 Motion 询盘整理：
+
+- 邮件日期：2026-07-30 19:50:34 UTC。
+- 发件人：`David.Burton@motion.com`，联系人 David Burton。
+- 主题：RFQ。
+- 产品：等效刷报价请求，客户问能否 quote an equivalent brush。
+- 附件图纸：`Brush needed.pdf`。
+- 图纸标题：`Brush, 60", 0.04 NYLON`。
+- Part No.：`5-050895`。
+- 规格：brush face width `54.00`；hub-to-hub OD max / overall length `56.00`；外径 `ø10.00`；内/芯部直径标注 `ø1.94`。
+- 默认公差/制造允许偏差（未特别说明时）：分数尺寸 `±0.06`；一位小数 `0.X ±0.1`；两位小数 `0.0X ±0.03`；三位小数 `0.00X ±0.01`；整数角度 `0° ±1°`；一位小数角度 `0.X° ±0.5°`。
+- 图纸备注：shear and brake dimensions are O.D.；break all sharp edges, remove burrs。
+- 数量：未给，需回信确认。
+- 公司：Motion，官网 `https://www.motion.com/`。
+- 行业：工业零部件/MRO 分销、机械动力传动、轴承、工业自动化及相关服务。
+- 公司规模：大型企业，官网信息为 600+ 北美网点、19 个分销中心。
+- 年营收估计：约 84 亿美元年销售额（2025，官网）。
+- 客户地理位置：美国 California, Chula Vista；公司总部 Alabama, Birmingham。
+- 已保存附件目录：`D:\brushcustom-email-imap\attachments\2026-07-30_Motion_David-Burton`。
+- Motion 已正式写入主表第 18 行。
+- 本次写表备份：
+
+```text
+D:\brushcustom-email-imap\work\brushcustom询盘记录_backup_before_motion_20260730_20260731010357.xlsx
+```
+
+- 主表校验结果：
+
+```text
+officecli validate: Validation passed: no errors found.
+officecli view issues: Found 0 issue(s).
+```
+
+- 预览图：
+
+```text
+D:\brushcustom-email-imap\work\preview_after_motion_20260730.png
+```
 
 2026-07-28 新增 Rhino 询盘整理：
 

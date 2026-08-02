@@ -1,0 +1,149 @@
+{
+  "source_pdf": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\BRUSH ASSEMBLY.PDF.pdf",
+  "output_dir": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\pdf_regions\\BRUSH_ASSEMBLY.PDF",
+  "created_at": "2026-08-02T10:12:33",
+  "renderer": "C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.exe",
+  "dpi": 300,
+  "scale": 3.0,
+  "contrast": 1.25,
+  "sharpen": true,
+  "regions": {
+    "title_block_zoom": [
+      0.55,
+      0.84,
+      0.99,
+      0.99
+    ],
+    "notes_zoom": [
+      0.02,
+      0.88,
+      0.46,
+      0.99
+    ],
+    "main_dimensions_zoom": [
+      0.03,
+      0.08,
+      0.64,
+      0.39
+    ],
+    "section_views_zoom": [
+      0.02,
+      0.36,
+      0.7,
+      0.84
+    ],
+    "right_detail_zoom": [
+      0.6,
+      0.1,
+      0.98,
+      0.76
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "rendered_size": {
+        "width": 3508,
+        "height": 2481
+      },
+      "outputs": [
+        {
+          "name": "full_page",
+          "path": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\pdf_regions\\BRUSH_ASSEMBLY.PDF\\page_001_full_page.png",
+          "pixel_box": [
+            0,
+            0,
+            3508,
+            2481
+          ],
+          "normalized_box": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "title_block_zoom",
+          "path": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\pdf_regions\\BRUSH_ASSEMBLY.PDF\\page_001_title_block_zoom.png",
+          "pixel_box": [
+            1929,
+            2084,
+            3473,
+            2456
+          ],
+          "normalized_box": [
+            0.55,
+            0.84,
+            0.99,
+            0.99
+          ]
+        },
+        {
+          "name": "notes_zoom",
+          "path": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\pdf_regions\\BRUSH_ASSEMBLY.PDF\\page_001_notes_zoom.png",
+          "pixel_box": [
+            70,
+            2183,
+            1614,
+            2456
+          ],
+          "normalized_box": [
+            0.02,
+            0.88,
+            0.46,
+            0.99
+          ]
+        },
+        {
+          "name": "main_dimensions_zoom",
+          "path": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\pdf_regions\\BRUSH_ASSEMBLY.PDF\\page_001_main_dimensions_zoom.png",
+          "pixel_box": [
+            105,
+            198,
+            2245,
+            968
+          ],
+          "normalized_box": [
+            0.03,
+            0.08,
+            0.64,
+            0.39
+          ]
+        },
+        {
+          "name": "section_views_zoom",
+          "path": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\pdf_regions\\BRUSH_ASSEMBLY.PDF\\page_001_section_views_zoom.png",
+          "pixel_box": [
+            70,
+            893,
+            2456,
+            2084
+          ],
+          "normalized_box": [
+            0.02,
+            0.36,
+            0.7,
+            0.84
+          ]
+        },
+        {
+          "name": "right_detail_zoom",
+          "path": "D:\\brushcustom-email-imap\\attachments\\2026-08-01_NEU-PMC-Pte-Ltd_Cherie-Yeow\\pdf_regions\\BRUSH_ASSEMBLY.PDF\\page_001_right_detail_zoom.png",
+          "pixel_box": [
+            2105,
+            248,
+            3438,
+            1886
+          ],
+          "normalized_box": [
+            0.6,
+            0.1,
+            0.98,
+            0.76
+          ]
+        }
+      ]
+    }
+  ]
+}

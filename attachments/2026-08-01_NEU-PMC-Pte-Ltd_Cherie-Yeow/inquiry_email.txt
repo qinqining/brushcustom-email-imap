@@ -1,0 +1,44 @@
+New Brushcustom RFQ
+
+Customer Information
+
+Name: Cherie Yeow
+Company: NEU-PMC Pte Ltd
+Email: cherieyeow@neucorporation.com
+Phone: 94556189
+
+Project Information
+
+Industry / Application: Semiconductor & ESD
+Brush type: panel brushes
+Estimated quantity: evaluation 4 pcs, and minimum 20pcs monthly when approved
+
+Project details:
+This panel brush is to be mounted on our machines in a semiconductor factory environment.
+
+The requirements are:
+- the base needs to be PVC
+- the filaments needs to be white ESD and 0.07mm diameter
+
+I have attached our drawing.
+
+For quotation, if you can provide me 4pcs and 20pcs will be great.
+
+Attachments included: BRUSH ASSEMBLY.PDF.pdf
+
+--- Submission Source Tracking ---
+Date / Time: 2026-08-01 17:24:31 CST
+Page URL: https://brushcustom.com/rfq/
+Source Page URL: https://brushcustom.com/industries/semiconductor-esd/
+Source Page Title: ESD Brushes for Semiconductor Equipment | Brushcustom
+Server Referrer: https://brushcustom.com/rfq/
+Client Referrer: https://brushcustom.com/industries/semiconductor-esd/
+User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+Remote IP: 122.11.243.89
+Turnstile: passed
+Honeypot: clean
+Rate Limit: accepted
+Form Elapsed Seconds: 181
+Form Source: Brushcustom RFQ Form
+Powered by: Brushcustom Website RFQ
+Request Endpoint: https://brushcustom.com/api/rfq.php

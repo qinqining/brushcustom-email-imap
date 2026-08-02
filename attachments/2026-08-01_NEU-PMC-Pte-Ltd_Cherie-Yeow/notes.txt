@@ -1,0 +1,36 @@
+NEU-PMC Pte Ltd - Cherie Yeow - 2026-08-01
+
+有效询盘判断：
+- 客户来自网站 RFQ 表单，Turnstile passed、Honeypot clean、Rate Limit accepted。
+- 有明确应用：semiconductor factory environment / ESD。
+- 有明确产品：panel brushes / BRUSH ASSEMBLY。
+- 有明确材料要求：PVC base，white ESD filaments，single brush diameter 0.07 mm。
+- 有数量：evaluation 4 pcs；approved 后 minimum 20 pcs monthly。
+- 有 PDF 图纸附件。
+
+图纸信息：
+- Title: BRUSH ASSEMBLY
+- Part No.: N037-260608-A01
+- Dwg No.: N037-260608-A01
+- Rev level: A0
+- Unit: MM
+- Qty: 01 SET
+- Material: TBA
+- Heat treatment: NA
+- Surface treatment: NA
+- Main overall size shown on drawing: 168 x 42 x 30 mm
+- Inner/brush window shown: 148 x 22 mm
+- Section B-B shows base/body 15 mm, visible brush height 15 mm, overall height 30 mm, bottom lip 2 mm
+- Cross-section width shown: 42 mm
+- Holes/features include 72x diameter 1 THRU, 6x diameter 5 THRU, 72x diameter 5 depth/press-fit brush holes, 4x R1.5, and mounting hole positions per drawing.
+- Note: ALL EDGES CHAMFER (0.10 [0.004]) UNLESS OTHERWISE SPECIFIED.
+
+General tolerances:
+- Millimeters: X ±0.5; X.X ±0.1; X.XX ±0.05; X.XXX ±0.020
+- Inches: .X ±.02; .XX ±.004; .XXX ±.002; .XXXX ±.0008
+- Angles: X° ±1°; X.X° ±30'
+- General roughness: Ra 0.8 µm
+
+Follow-up:
+- Quote both 4 pcs evaluation and 20 pcs monthly quantity.
+- Confirm ESD filament standard/resistance range, PVC grade, exact press-fit hole interpretation, tolerances, and delivery address.
